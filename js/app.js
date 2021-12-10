@@ -21,4 +21,8 @@ window.addEventListener('load', function () {
             categoria === 'todos' ? grid.filter('[data-categoria]') : grid.filter("[data-categoria = ".concat(categoria, "]"));
         });
     });
+    document.querySelector('#barra-busqueda').addEventListener('input', function (evento) {
+        var busqueda = evento.target.value;
+        grid.filter(function (item) { return item.getElement().dataset.etiquetas.includes(busqueda); });
+    });
 });
