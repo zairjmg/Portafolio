@@ -1,6 +1,10 @@
 :root {
     --font_o: 'Open Sans', sans-serif;
     --font_r: 'Roboto', sans-serif;
+    --color: #fff;
+    --color_1: #f3f3f3;
+    --color_2: #9b9b9b;
+    --color_3: #000;
 }
 
 * {
@@ -10,7 +14,7 @@
 }
 
 body {
-    background: #f3f3f3;
+    background: var(--color_1);
     font-family: var(--font_o);
 }
 
@@ -22,4 +26,66 @@ a {
     width: 90%;
     max-width: 800px;
     margin: auto;
+}
+
+/* Header */
+
+header {
+    padding: 40px 0;
+}
+
+header img {
+    display: block;
+    height: 100px;
+    margin: 20px auto;
+}
+
+header .logo {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header .logo p {
+    color: var(--color_2);
+}
+
+header form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+header .barra-busqueda {
+    width: 70%;
+    height: 40px;
+    line-height: 40px;
+    background: var(--color);
+    padding: 0 20px;
+    border-radius: 100px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    -ms-border-radius: 100px;
+    -o-border-radius: 100px;
+    border: none;
+    text-align: center;
+    font-size: 16px;
+}
+
+header .categorias {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+header .categorias a {
+    color: var(--color_2);
+    margin: 10px 20px;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+header .categorias a.activo {
+    color: var(--color_3);
+    font-weight: 600;
 }
