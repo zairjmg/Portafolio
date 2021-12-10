@@ -5,6 +5,7 @@
     --color_1: #f3f3f3;
     --color_2: #9b9b9b;
     --color_3: #000;
+    --color_4: #0060DF;
 }
 
 * {
@@ -68,7 +69,7 @@ header .barra-busqueda {
     -ms-border-radius: 100px;
     -o-border-radius: 100px;
     border: none;
-    text-align: center;
+    /* text-align: center; */
     font-size: 16px;
 }
 
@@ -88,4 +89,39 @@ header .categorias a {
 header .categorias a.activo {
     color: var(--color_3);
     font-weight: 600;
+}
+
+/* Grid */
+
+.grid {
+    position: relative;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.5s linear 1s;
+    -webkit-transition: opacity 0.5s linear 1s;
+    -moz-transition: opacity 0.5s linear 1s;
+    -ms-transition: opacity 0.5s linear 1s;
+    -o-transition: opacity 0.5s linear 1s;
+}
+
+.grid.imagenes-cargadas {
+    opacity: 1;
+}
+
+.grid .item {
+    position: absolute;
+    display: block;
+    padding: 0;
+    margin: 10px;
+    width: calc(33.33% - 20px);
+}
+
+.grid .item-contenido {
+    position: relative;
+}
+
+.grid .item img {
+    width: 100%;
+    cursor: pointer;
+    vertical-align: top;
 }
