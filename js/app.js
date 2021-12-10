@@ -11,4 +11,14 @@ var grid = new Muuri('.grid', {
 window.addEventListener('load', function () {
     grid.refreshItems().layout();
     document.getElementById('grid').classList.add('imagenes-cargadas');
+    var enlaces = document.querySelectorAll('#categorias a');
+    enlaces.forEach(function (elemento) {
+        elemento.addEventListener('click', function (evento) {
+            evento.preventDefault();
+            enlaces.forEach(function (enlaces) { return enlaces.classList.remove('activo'); });
+            evento.target.classList.add('activo');
+            var categoria = evento.target.innerHTML.toLowerCase();
+            categoria === 'todos' ? grid.filter('[data-categoria]') : grid.filter("[data-categoria = ".concat(categoria, "]"));
+        });
+    });
 });
