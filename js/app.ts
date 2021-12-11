@@ -29,4 +29,24 @@ window.addEventListener('load', () => {
         const busqueda = evento.target.value;
         grid.filter((item) => item.getElement().dataset.etiquetas.includes(busqueda));
     });
-})
+
+    const overlay = document.getElementById('overlay');
+    document.querySelectorAll('.grid .item img').forEach((elemento) => {
+        elemento.addEventListener(('click'), () => {
+            const ruta: string = elemento.getAttribute('src');
+            const descripcion: string = elemento.parentNode.parentNode.dataset.descripcion;
+
+            overlay.classList.add('activo');
+            document.querySelector('#overlay img').src = ruta;
+            document.querySelector('#overlay .descripcion').innerHTML = descripcion;
+        });
+    });
+
+    document.querySelector('#btn-cerrar').addEventListener('click', () => {
+        overlay.classList.remove('activo');
+    });
+
+    overlay.addEventListener('click',(evento) => {
+        evento.target.id === 'overlay' ? overlay.classList.remove('activo') : '';
+    });
+});

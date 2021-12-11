@@ -25,4 +25,20 @@ window.addEventListener('load', function () {
         var busqueda = evento.target.value;
         grid.filter(function (item) { return item.getElement().dataset.etiquetas.includes(busqueda); });
     });
+    var overlay = document.getElementById('overlay');
+    document.querySelectorAll('.grid .item img').forEach(function (elemento) {
+        elemento.addEventListener(('click'), function () {
+            var ruta = elemento.getAttribute('src');
+            var descripcion = elemento.parentNode.parentNode.dataset.descripcion;
+            overlay.classList.add('activo');
+            document.querySelector('#overlay img').src = ruta;
+            document.querySelector('#overlay .descripcion').innerHTML = descripcion;
+        });
+    });
+    document.querySelector('#btn-cerrar').addEventListener('click', function () {
+        overlay.classList.remove('activo');
+    });
+    overlay.addEventListener('click', function (evento) {
+        evento.target.id === 'overlay' ? overlay.classList.remove('activo') : '';
+    });
 });
